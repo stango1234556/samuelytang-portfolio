@@ -114,30 +114,11 @@ const camera = new THREE.PerspectiveCamera(
   200
 );
 
-const canvasEl = document.getElementById("experience-canvas");
-if (!canvasEl) {
-  console.error('Canvas "#experience-canvas" not found');
-  throw new Error('Missing canvas element');
-}
-
-const isIOS =
-  /iPad|iPhone|iPod/.test(navigator.userAgent) ||
-  (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
-
 const renderer = new THREE.WebGLRenderer({
-  canvas: canvasEl,
-  antialias: !isIOS,
-  powerPreference: "low-power",
-  alpha: true,
-  stencil: false,
+  canvas: canvas,
+  antialias: true,
 });
 
-const capDPR = () => Math.min(window.devicePixelRatio || 1, isIOS ? 1.5 : 2);
-renderer.setPixelRatio(capDPR());
-renderer.setSize(window.innerWidth, window.innerHeight);
-renderer.outputColorSpace = THREE.SRGBColorSpace;
-
-renderer.domElement.addEventListener("webglcontextlost", e => e.preventDefault(), false);
 renderer.setSize(sizes.width, sizes.height);
 renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
