@@ -1097,14 +1097,14 @@ const textureMap = {
     day: "/textures/room/day/sixth_texture_set_day.webp",
     night: "/textures/room/night/sixth_texture_set_night.webp",
   },
-  Seventh: {
-    day: "/textures/room/day/seventh_texture_set_day.webp",
-    night: "/textures/room/night/seventh_texture_set_night.webp",
-  },
-  Eighth: {
-    day: "/textures/room/day/eighth_texture_set_day.webp",
-    night: "/textures/room/night/eighth_texture_set_night.webp",
-  },
+  // Seventh: {
+  //   day: "/textures/room/day/seventh_texture_set_day.webp",
+  //   night: "/textures/room/night/seventh_texture_set_night.webp",
+  // },
+  // Eighth: {
+  //   day: "/textures/room/day/eighth_texture_set_day.webp",
+  //   night: "/textures/room/night/eighth_texture_set_night.webp",
+  // },
   // Ninth: {
   //   day: "/textures/room/day/ninth_texture_set_day.webp",
   //   night: "/textures/room/night/ninth_texture_set_night.webp",
