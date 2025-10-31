@@ -1089,62 +1089,62 @@ const textureMap = {
     day: "/textures/room/day/fourth_texture_set_day.webp",
     night: "/textures/room/night/fourth_texture_set_night.webp",
   },
-  Fifth: {
-    day: "/textures/room/day/fifth_texture_set_day.webp",
-    night: "/textures/room/night/fifth_texture_set_night.webp",
-  },
-  Sixth: {
-    day: "/textures/room/day/sixth_texture_set_day.webp",
-    night: "/textures/room/night/sixth_texture_set_night.webp",
-  },
-  Seventh: {
-    day: "/textures/room/day/seventh_texture_set_day.webp",
-    night: "/textures/room/night/seventh_texture_set_night.webp",
-  },
-  Eighth: {
-    day: "/textures/room/day/eighth_texture_set_day.webp",
-    night: "/textures/room/night/eighth_texture_set_night.webp",
-  },
-  Ninth: {
-    day: "/textures/room/day/ninth_texture_set_day.webp",
-    night: "/textures/room/night/ninth_texture_set_night.webp",
-  },
-  Tenth: {
-    day: "/textures/room/day/tenth_texture_set_day.webp",
-    night: "/textures/room/night/tenth_texture_set_night.webp",
-  },
-  Eleventh: {
-    day: "/textures/room/day/eleventh_texture_set_day.webp",
-    night: "/textures/room/night/eleventh_texture_set_night.webp",
-  },
-  Twelfth: {
-    day: "/textures/room/day/twelfth_texture_set_day.webp",
-    night: "/textures/room/night/twelfth_texture_set_night.webp",
-  },
-  Thirteenth: {
-    day: "/textures/room/day/thirteenth_texture_set_day.webp",
-    night: "/textures/room/night/thirteenth_texture_set_night.webp",
-  },
-  Fourteenth: {
-    day: "/textures/room/day/fourteenth_texture_set_day.webp",
-    night: "/textures/room/night/fourteenth_texture_set_night.webp",
-  },
-  Fifteenth: {
-    day: "/textures/room/day/fifteenth_texture_set_day.webp",
-    night: "/textures/room/night/fifteenth_texture_set_night.webp",
-  },
-  Sixteenth: {
-    day: "/textures/room/day/sixteenth_texture_set_day.webp",
-    night: "/textures/room/night/sixteenth_texture_set_night.webp",
-  },
-  Seventeenth: {
-    day: "/textures/room/day/seventeenth_texture_set_day.webp",
-    night: "/textures/room/night/seventeenth_texture_set_night.webp",
-  },
-  Eighteenth: {
-    day: "/textures/room/day/eighteenth_texture_set_day.webp",
-    night: "/textures/room/night/eighteenth_texture_set_night.webp",
-  },
+  // Fifth: {
+  //   day: "/textures/room/day/fifth_texture_set_day.webp",
+  //   night: "/textures/room/night/fifth_texture_set_night.webp",
+  // },
+  // Sixth: {
+  //   day: "/textures/room/day/sixth_texture_set_day.webp",
+  //   night: "/textures/room/night/sixth_texture_set_night.webp",
+  // },
+  // Seventh: {
+  //   day: "/textures/room/day/seventh_texture_set_day.webp",
+  //   night: "/textures/room/night/seventh_texture_set_night.webp",
+  // },
+  // Eighth: {
+  //   day: "/textures/room/day/eighth_texture_set_day.webp",
+  //   night: "/textures/room/night/eighth_texture_set_night.webp",
+  // },
+  // Ninth: {
+  //   day: "/textures/room/day/ninth_texture_set_day.webp",
+  //   night: "/textures/room/night/ninth_texture_set_night.webp",
+  // },
+  // Tenth: {
+  //   day: "/textures/room/day/tenth_texture_set_day.webp",
+  //   night: "/textures/room/night/tenth_texture_set_night.webp",
+  // },
+  // Eleventh: {
+  //   day: "/textures/room/day/eleventh_texture_set_day.webp",
+  //   night: "/textures/room/night/eleventh_texture_set_night.webp",
+  // },
+  // Twelfth: {
+  //   day: "/textures/room/day/twelfth_texture_set_day.webp",
+  //   night: "/textures/room/night/twelfth_texture_set_night.webp",
+  // },
+  // Thirteenth: {
+  //   day: "/textures/room/day/thirteenth_texture_set_day.webp",
+  //   night: "/textures/room/night/thirteenth_texture_set_night.webp",
+  // },
+  // Fourteenth: {
+  //   day: "/textures/room/day/fourteenth_texture_set_day.webp",
+  //   night: "/textures/room/night/fourteenth_texture_set_night.webp",
+  // },
+  // Fifteenth: {
+  //   day: "/textures/room/day/fifteenth_texture_set_day.webp",
+  //   night: "/textures/room/night/fifteenth_texture_set_night.webp",
+  // },
+  // Sixteenth: {
+  //   day: "/textures/room/day/sixteenth_texture_set_day.webp",
+  //   night: "/textures/room/night/sixteenth_texture_set_night.webp",
+  // },
+  // Seventeenth: {
+  //   day: "/textures/room/day/seventeenth_texture_set_day.webp",
+  //   night: "/textures/room/night/seventeenth_texture_set_night.webp",
+  // },
+  // Eighteenth: {
+  //   day: "/textures/room/day/eighteenth_texture_set_day.webp",
+  //   night: "/textures/room/night/eighteenth_texture_set_night.webp",
+  // },
 };
 
 const loadedTextures = {
@@ -1238,10 +1238,6 @@ const smokeMaterial = new THREE.ShaderMaterial({
   depthWrite: false,
 });
 
-// const smoke = new THREE.Mesh(smokeGeometry, smokeMaterial);
-// smoke.position.y = 1.83;
-// scene.add(smoke);
-
 const videoElement = document.createElement("video");
 videoElement.src = "/textures/video/Screen.mp4";
 videoElement.loop = true;
@@ -1256,7 +1252,6 @@ videoTexture.flipY = false;
 
 /**  -------------------------- Model and Mesh Setup -------------------------- */
 
-// LOL DO NOT DO THIS USE A FUNCTION TO AUTOMATE THIS PROCESS HAHAHAAHAHAHAHAHAHA
 let fish;
 let coffeePosition;
 let hourHand;
