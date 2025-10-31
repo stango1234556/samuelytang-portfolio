@@ -1,6 +1,6 @@
 personal portfolio website
 
-**[Live site]()**
+**[Live site](https://samuelytang.dev/)**
 
 # Instructions
 
