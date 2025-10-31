@@ -1,4 +1,4 @@
-personal portfolio website
+Personal portfolio website
 
 **[Live site](https://samuelytang.dev/)**
 
