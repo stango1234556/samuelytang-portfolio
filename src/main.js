@@ -1089,62 +1089,6 @@ const textureMap = {
     day: "/textures/room/day/fourth_texture_set_day.webp",
     night: "/textures/room/night/fourth_texture_set_night.webp",
   },
-  Fifth: {
-    day: "/textures/room/day/fifth_texture_set_day.webp",
-    night: "/textures/room/night/fifth_texture_set_night.webp",
-  },
-  Sixth: {
-    day: "/textures/room/day/sixth_texture_set_day.webp",
-    night: "/textures/room/night/sixth_texture_set_night.webp",
-  },
-  Seventh: {
-    day: "/textures/room/day/seventh_texture_set_day.webp",
-    night: "/textures/room/night/seventh_texture_set_night.webp",
-  },
-  Eighth: {
-    day: "/textures/room/day/eighth_texture_set_day.webp",
-    night: "/textures/room/night/eighth_texture_set_night.webp",
-  },
-  Ninth: {
-    day: "/textures/room/day/ninth_texture_set_day.webp",
-    night: "/textures/room/night/ninth_texture_set_night.webp",
-  },
-  Tenth: {
-    day: "/textures/room/day/tenth_texture_set_day.webp",
-    night: "/textures/room/night/tenth_texture_set_night.webp",
-  },
-  Eleventh: {
-    day: "/textures/room/day/eleventh_texture_set_day.webp",
-    night: "/textures/room/night/eleventh_texture_set_night.webp",
-  },
-  Twelfth: {
-    day: "/textures/room/day/twelfth_texture_set_day.webp",
-    night: "/textures/room/night/twelfth_texture_set_night.webp",
-  },
-  Thirteenth: {
-    day: "/textures/room/day/thirteenth_texture_set_day.webp",
-    night: "/textures/room/night/thirteenth_texture_set_night.webp",
-  },
-  Fourteenth: {
-    day: "/textures/room/day/fourteenth_texture_set_day.webp",
-    night: "/textures/room/night/fourteenth_texture_set_night.webp",
-  },
-  Fifteenth: {
-    day: "/textures/room/day/fifteenth_texture_set_day.webp",
-    night: "/textures/room/night/fifteenth_texture_set_night.webp",
-  },
-  Sixteenth: {
-    day: "/textures/room/day/sixteenth_texture_set_day.webp",
-    night: "/textures/room/night/sixteenth_texture_set_night.webp",
-  },
-  Seventeenth: {
-    day: "/textures/room/day/seventeenth_texture_set_day.webp",
-    night: "/textures/room/night/seventeenth_texture_set_night.webp",
-  },
-  Eighteenth: {
-    day: "/textures/room/day/eighteenth_texture_set_day.webp",
-    night: "/textures/room/night/eighteenth_texture_set_night.webp",
-  },
 };
 
 const loadedTextures = {
@@ -1190,32 +1134,40 @@ const whiteMaterial = new THREE.MeshBasicMaterial({
   color: 0xffffff,
 });
 
-const createMaterialForTextureSet = (setKey) => {
-  const mat = new THREE.ShaderMaterial({
+const createMaterialForTextureSet = (textureSet) => {
+  const material = new THREE.ShaderMaterial({
     uniforms: {
-      uDayMap:   { value: loadedTextures.day[setKey] },
-      uNightMap: { value: loadedTextures.night[setKey] },
+      uDayTexture1: { value: loadedTextures.day.First },
+      uNightTexture1: { value: loadedTextures.night.First },
+      uDayTexture2: { value: loadedTextures.day.Second },
+      uNightTexture2: { value: loadedTextures.night.Second },
+      uDayTexture3: { value: loadedTextures.day.Third },
+      uNightTexture3: { value: loadedTextures.night.Third },
+      uDayTexture4: { value: loadedTextures.day.Fourth },
+      uNightTexture4: { value: loadedTextures.night.Fourth },
       uMixRatio: { value: 0 },
+      uTextureSet: { value: textureSet },
     },
     vertexShader: themeVertexShader,
     fragmentShader: themeFragmentShader,
   });
 
-  // ensure good sampling defaults
-  [mat.uniforms.uDayMap.value, mat.uniforms.uNightMap.value].forEach(tex => {
-    tex.minFilter = THREE.LinearFilter;
-    tex.magFilter = THREE.LinearFilter;
-    tex.flipY = false;
-    tex.colorSpace = THREE.SRGBColorSpace;
+  Object.entries(material.uniforms).forEach(([key, uniform]) => {
+    if (uniform.value instanceof THREE.Texture) {
+      uniform.value.minFilter = THREE.LinearFilter;
+      uniform.value.magFilter = THREE.LinearFilter;
+    }
   });
 
-  return mat;
+  return material;
 };
 
-const roomMaterials = {};
-Object.keys(textureMap).forEach((key) => {
-  roomMaterials[key] = createMaterialForTextureSet(key);
-});
+const roomMaterials = {
+  First: createMaterialForTextureSet(1),
+  Second: createMaterialForTextureSet(2),
+  Third: createMaterialForTextureSet(3),
+  Fourth: createMaterialForTextureSet(4),
+};
 
 // Smoke Shader setup
 const smokeGeometry = new THREE.PlaneGeometry(1, 1, 16, 64);
