@@ -340,8 +340,6 @@ manager.onLoad = function () {
     loadingScreen.style.background = "#bdc9f2ff";
     isDisabled = true;
 
-    toggleFavicons();
-
     if (!withSound) {
       isMuted = true;
       updateMuteState(true);
@@ -1871,33 +1869,10 @@ muteToggleButton.addEventListener(
   { passive: false }
 );
 
-// Themeing stuff
-const toggleFavicons = () => {
-  const isDark = document.body.classList.contains("dark-theme");
-  const theme = isDark ? "light" : "dark";
-
-  document.querySelector(
-    'link[sizes="96x96"]'
-  ).href = `media/${theme}-favicon/favicon-96x96.png`;
-  document.querySelector(
-    'link[type="image/svg+xml"]'
-  ).href = `/media/${theme}-favicon/favicon.svg`;
-  document.querySelector(
-    'link[rel="shortcut icon"]'
-  ).href = `media/${theme}-favicon/favicon.ico`;
-  document.querySelector(
-    'link[rel="apple-touch-icon"]'
-  ).href = `media/${theme}-favicon/apple-touch-icon.png`;
-  document.querySelector(
-    'link[rel="manifest"]'
-  ).href = `media/${theme}-favicon/site.webmanifest`;
-};
-
 let isNightMode = false;
 
 const handleThemeToggle = (e) => {
   e.preventDefault();
-  toggleFavicons();
 
   const isDark = document.body.classList.contains("dark-theme");
   document.body.classList.remove(isDark ? "dark-theme" : "light-theme");
