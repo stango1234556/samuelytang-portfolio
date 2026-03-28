@@ -22,10 +22,45 @@ const PIANO_TIMEOUT = 2000;
 const BACKGROUND_MUSIC_VOLUME = 1;
 const FADED_VOLUME = 0;
 
+const musicTracks = [
+  "/audio/music/Macaron.ogg",
+  "/audio/music/Monaka.ogg",
+  "/audio/music/Pavlova.ogg",
+  "/audio/music/Shirozake.ogg",
+  "/audio/music/Skuffukaka.ogg",
+];
+
+const shuffleArray = (array) => {
+  const shuffled = [...array];
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+  return shuffled;
+};
+
+const playlistOrder = shuffleArray(musicTracks);
+let currentTrackIndex = 0;
+
 const backgroundMusic = new Howl({
-  src: ["/audio/music/cosmic_candy.ogg"],
-  loop: true,
-  volume: 1,
+  src: [playlistOrder[currentTrackIndex]],
+  loop: false,
+  volume: BACKGROUND_MUSIC_VOLUME,
+});
+
+const playCurrentTrack = () => {
+  backgroundMusic.stop();
+  backgroundMusic.unload();
+
+  backgroundMusic._src = playlistOrder[currentTrackIndex];
+  backgroundMusic.load();
+  backgroundMusic.volume(isMusicFaded ? FADED_VOLUME : BACKGROUND_MUSIC_VOLUME);
+  backgroundMusic.play();
+};
+
+backgroundMusic.on("end", () => {
+  currentTrackIndex = (currentTrackIndex + 1) % playlistOrder.length;
+  playCurrentTrack();
 });
 
 const fadeOutBackgroundMusic = () => {

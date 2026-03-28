@@ -10,7 +10,7 @@ npm run dev
 ```
 # Credits!
 
-- [Music](https://youtu.be/eq3C1Uwz6YU)
+- [Music](https://www.youtube.com/@tonbo%E3%81%A8%E3%82%93%E3%81%BC)
 - [Click SFX](https://uppbeat.io/sfx/category/digital-and-ui/ui)
 - [Piano SFX](https://pixabay.com/sound-effects/all-88-keys-on-a-piano-playing-fast-free-high-quality-sound-effects-71279/)
 - [SVGs](https://www.svgrepo.com/)
