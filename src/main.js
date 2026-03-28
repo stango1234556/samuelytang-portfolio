@@ -1983,9 +1983,9 @@ const updateClockHands = () => {
   const minutes = now.getMinutes();
   const seconds = now.getSeconds();
 
-  const minuteAngle = (minutes + seconds / 60) * ((Math.PI * 2) / 60);
+  const minuteAngle = (minutes + seconds / 60) * ((Math.PI * 2) / 60) + 59/60;
 
-  const hourAngle = (hours + minutes / 60) * ((Math.PI * 2) / 12);
+  const hourAngle = (hours + minutes / 60) * ((Math.PI * 2) / 12) - 1.1;
 
   minuteHand.rotation.x = -minuteAngle;
   hourHand.rotation.x = -hourAngle;
